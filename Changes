@@ -13,3 +13,22 @@ def InsertionMutation(chromosome):
     ##Insert Value back into the gene at random position
     mutatedGene = np.insert(chromosome,pos2,getValue)
     return mutatedGene
+
+
+def PartialMixMutation(chromosome): ## Function which replaces part of the KS problem with newly generated solutions, different form of mutation
+    ##number of Replacements
+    nOR = 5
+    ##Define new mutatedGene
+    mutatedGene = chromosome
+    ##define length of chromosome
+    length = len(chromosome)
+    ##Generate position where next 5 values will be changed
+    pos1 =random.randint(0,length-nOR)
+    ##Delete Set number of Values
+    for i in range(nOR):
+        mutatedGene = np.delete(mutatedGene,pos1)
+    ##Insert new values
+    for j in range(nOR):
+        value = random.randint(0,1)
+        mutatedGene = np.insert(mutatedGene,pos1,value)
+    return mutatedGene
