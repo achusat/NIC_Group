@@ -1,1 +1,15 @@
 
+def InsertionMutation(chromosome):
+    mutatedGene = chromosome
+    ##Generate random positions which will be swapped
+    pos1 = random.randint(0,len(chromosome)-1)
+    pos2 = random.randint(0,len(chromosome)-1)
+    ##save values from unswapped positions
+    getValue = chromosome[pos1]
+    ##Save position of Value 
+    valuePos = chromosome.index(getValue)
+    ##Remove Value from gene
+    chromosome = np.delete(chromosome,valuePos)
+    ##Insert Value back into the gene at random position
+    mutatedGene = np.insert(chromosome,pos2,getValue)
+    return mutatedGene
